@@ -37,13 +37,11 @@ function _clickButton(driver) {
 }
 
 export default async function handler(req, res) {
-  const firstName = "John";
-  const lastName = "Doe";
-  const email = "john@doe.com";
-  const userName = "john-doe";
-  const password = "changeme";
-  const gender = "Female";
-  const country = "United States";
+  if (req.method !== "POST") {
+    return res.status(405, "Method Not Allowed").send();
+  }
+  const { firstName, lastName, email, userName, password, gender, country } =
+    req.body;
 
   let options = new chrome.Options();
   let driver = await new Builder()
