@@ -4,6 +4,7 @@ export default function Input({
   type = "text",
   label = name,
   onChange,
+  error = "",
 }) {
   const handleInputChange = (e) => {
     if (onChange) {
@@ -19,12 +20,19 @@ export default function Input({
         {label}
       </label>
       <input
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+          error ? "border border-red-700" : ""
+        }`}
         id={name}
         type={type}
         placeholder={placeholder}
         onChange={handleInputChange}
       />
+      {error ? (
+        <span className="text-xs text-red-700" id="passwordHelp">
+          {error}
+        </span>
+      ) : null}
     </div>
   );
 }

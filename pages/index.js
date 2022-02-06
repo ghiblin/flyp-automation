@@ -25,6 +25,13 @@ export default function Home() {
               </p>
             </a>
           </Link>
+
+          <Link href="/scrape" passHref>
+            <a className={styles.card}>
+              <h2>Web Scraping &rarr;</h2>
+              <p>Scrape Poshmark User Info page.</p>
+            </a>
+          </Link>
         </div>
       </main>
 
